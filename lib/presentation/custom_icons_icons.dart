@@ -16,6 +16,10 @@
 ///         Author:    Alessio Atzeni
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://www.alessioatzeni.com
+/// * Typicons, (c) Stephen Hutchings 2012
+///         Author:    Stephen Hutchings
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://typicons.com/
 ///
 import 'package:flutter/widgets.dart';
 
@@ -72,4 +76,5 @@ class CustomIcons {
   static const IconData hail = IconData(0xe82c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clouds = IconData(0xe82d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clouds_flash = IconData(0xe82e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData direction = IconData(0xe82f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

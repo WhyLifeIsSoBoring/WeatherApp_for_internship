@@ -20,6 +20,10 @@
 ///         Author:    Stephen Hutchings
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://typicons.com/
+/// * Linearicons Free, Copyright (C) Linearicons.com
+///         Author:    Perxis
+///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+///         Homepage:  https://linearicons.com
 ///
 import 'package:flutter/widgets.dart';
 
@@ -77,4 +81,5 @@ class CustomIcons {
   static const IconData clouds = IconData(0xe82d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clouds_flash = IconData(0xe82e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData direction = IconData(0xe82f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData drop = IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

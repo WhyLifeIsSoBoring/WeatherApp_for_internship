@@ -9,23 +9,6 @@ import 'package:weather_app_for_internship/widgets/main_current_weather_view.dar
 
 class MainPage extends StatelessWidget {
   CurrentWeatherProvider currentWeatherProvider = CurrentWeatherProvider();
-  List<Widget> _widgetOptions = <Widget>[
-    //MainCurrentWeatherView(currentWeatherProvider),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Today'),
-      ),
-      body: Center(child: Text('Today', style: TextStyle(fontSize: 60.0)),)
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('City'),
-      ),
-      body: Center(child: Text('Forecast', style: TextStyle(fontSize: 60.0)),)
-    )
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +17,28 @@ class MainPage extends StatelessWidget {
       child: BlocBuilder<WeatherBloc, WeatherState>(
         builder: (context, state) {
           return Scaffold(
-            body: _widgetOptions.elementAt(state.currentIndex),
+            body: (() {
+              if(state.currentIndex == 0) {
+                return Scaffold(
+                  appBar: AppBar(
+                    centerTitle: true,
+                    backgroundColor: Colors.white,
+                    title: Text(
+                      'Today',
+                      style: TextStyle(color: Colors.black),),
+                  ),
+                  body: mainCurrentWeatherView(context, state)
+                );
+              } else if (state.currentIndex == 1) {
+                return Scaffold(
+                appBar: AppBar(
+                  centerTitle: true,
+                  title: Text('City'),
+                ),
+                body: Center(child: Text('Forecast', style: TextStyle(fontSize: 60.0)),)
+              );
+              }
+            }()),
             bottomNavigationBar: BottomNavigationBar (
               type: BottomNavigationBarType.fixed,
               currentIndex: state.currentIndex,

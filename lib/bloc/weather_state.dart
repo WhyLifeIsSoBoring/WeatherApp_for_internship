@@ -2,7 +2,9 @@ import 'package:weather_app_for_internship/models/current_weather.dart';
 
 abstract class WeatherState {
   late int currentIndex;
-  //get currentIndex => null;
+}
+class InitialState extends WeatherState {
+  final int currentIndex = 0;
 }
 
 class CurrentWeatherLoadingState extends WeatherState {

@@ -6,8 +6,7 @@ import 'package:weather_app_for_internship/services/current_weather_api_provider
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   CurrentWeatherProvider currentWeatherProvider;
-
-  WeatherBloc(this.currentWeatherProvider,) : super(CurrentWeatherInitialState());
+  WeatherBloc(this.currentWeatherProvider) : super(InitialState());
 
   @override 
   Stream<WeatherState> mapEventToState(WeatherEvent event) async* {
@@ -16,11 +15,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       try {
         final CurrentWeather _currentWeather = await currentWeatherProvider.getCurrentWeather();
         yield CurrentWeatherLoadedState(currentWeather: _currentWeather);
-      } catch (e) {
+      } catch (_) {
         yield CurrentWeatherErrorState();
       }
     } else if (event is ForecastWeatherLoadEvent) {
-
+      yield ForecastWeatherLoadingState();
     }
   }
 }

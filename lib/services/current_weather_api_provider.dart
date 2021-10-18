@@ -12,7 +12,7 @@ class CurrentWeatherProvider {
     var url = "https://api.openweathermap.org/data/2.5/forecast?lat=$lat&lon=$lon&appid=$apiKey&units=metric";
 
     final response  = await http.get(Uri.parse(url));
-
+    
     if (response.statusCode == 200) {
       final currentWeatherJson = json.decode(response.body);
       currentWeather = CurrentWeather.fromJson(currentWeatherJson);

@@ -18,7 +18,7 @@ Widget mainCurrentWeatherView(BuildContext context, WeatherState state) {
         Divider(height: 30.0, thickness: 2, indent: 100.0, endIndent: 100.0,),
         extendedCurrentWeatherView(context, state),
         Divider(height: 30.0, thickness: 2, indent: 100.0, endIndent: 100.0,),
-        shareView(),
+        shareView(state),
       ],
     );
   }

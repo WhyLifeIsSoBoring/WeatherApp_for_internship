@@ -4,16 +4,18 @@ import 'package:weather_app_for_internship/bloc/weather_bloc.dart';
 import 'package:weather_app_for_internship/bloc/weather_event.dart';
 import 'package:weather_app_for_internship/bloc/weather_state.dart';
 import 'package:weather_app_for_internship/presentation/custom_icons_icons.dart';
+import 'package:weather_app_for_internship/services/current_location_provider.dart';
 import 'package:weather_app_for_internship/services/current_weather_api_provider.dart';
 import 'package:weather_app_for_internship/widgets/main_current_weather_view.dart';
 
 class MainPage extends StatelessWidget {
   CurrentWeatherProvider currentWeatherProvider = CurrentWeatherProvider();
+  CurrentLocationProvider currentLocationProvider = CurrentLocationProvider();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<WeatherBloc>(
-      create: (context) => WeatherBloc(currentWeatherProvider)..add(CurrentWeatherLoadEvent()),
+      create: (context) => WeatherBloc(currentWeatherProvider, currentLocationProvider)..add(CurrentWeatherLoadEvent()),
       child: BlocBuilder<WeatherBloc, WeatherState>(
         builder: (context, state) {
           return Scaffold(

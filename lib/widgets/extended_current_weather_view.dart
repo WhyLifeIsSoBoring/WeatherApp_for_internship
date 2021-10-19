@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_for_internship/bloc/weather_state.dart';
+import 'package:weather_app_for_internship/functions/wind_direction.dart';
 import 'package:weather_app_for_internship/presentation/custom_icons_icons.dart';
 
 Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedState state) {
@@ -95,7 +96,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0,left: 65.0,),
                     child: Text(
-                      '${state.currentWeather.windSpeed} m/s',
+                      '${state.currentWeather.windSpeed} km/h',
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),
@@ -117,7 +118,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0, right: 65.0),
                     child: Text(
-                      '${state.currentWeather.windDeg}°',
+                      windDirection(state.currentWeather.windDeg),
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),

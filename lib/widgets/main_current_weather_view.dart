@@ -27,6 +27,7 @@ Widget mainCurrentWeatherView(BuildContext context, WeatherState state) {
       child: Text(
         'Error fetching current weather', 
         style: TextStyle(fontSize: 30.0),
+        textAlign: TextAlign.center,
       ),
     );
   }

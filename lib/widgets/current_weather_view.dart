@@ -17,7 +17,7 @@ Widget currentWeatherView(BuildContext context, CurrentWeatherLoadedState state)
         ),
       ),
       Container(
-        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
         margin: EdgeInsets.only(right: 55.0),
         child: ListTile(
           leading: Icon(

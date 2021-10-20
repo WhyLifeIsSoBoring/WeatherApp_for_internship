@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:location/location.dart';
-import 'package:weather_app_for_internship/models/current_weather.dart';
+import 'package:weather_app_for_internship/models/weather.dart';
 
-class CurrentWeatherProvider {
+class WeatherProvider {
 
-  Future getCurrentWeather(LocationData _location) async {
+  Future getWeather(LocationData _location) async {
 
-    CurrentWeather currentWeather;
+    Weather weather;
     String lat = '${_location.latitude}';   
     String lon = '${_location.longitude}';
     String apiKey = "fa9d791964704e17c3d2943c20e2533a";
@@ -16,9 +16,9 @@ class CurrentWeatherProvider {
     final response  = await http.get(Uri.parse(url));
     
     if (response.statusCode == 200) {
-      final currentWeatherJson = json.decode(response.body);
-      currentWeather = CurrentWeather.fromJson(currentWeatherJson);
-      return currentWeather;
+      final weatherJson = json.decode(response.body);
+      weather = Weather.fromJson(weatherJson);
+      return weather;
     } else {
       throw Exception("Error fetching weather");
     }

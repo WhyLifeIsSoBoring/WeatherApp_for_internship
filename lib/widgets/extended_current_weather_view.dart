@@ -3,7 +3,7 @@ import 'package:weather_app_for_internship/bloc/weather_state.dart';
 import 'package:weather_app_for_internship/functions/wind_direction.dart';
 import 'package:weather_app_for_internship/presentation/custom_icons_icons.dart';
 
-Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedState state) {
+Widget extendedCurrentWeatherView(BuildContext context, WeatherContentState state) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisSize: MainAxisSize.min,
@@ -25,7 +25,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0),
                     child: Text(
-                      '${state.currentWeather.pop}%',
+                      '${state.weather.currentWeather.pop}%',
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),
@@ -46,7 +46,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0),
                     child: Text(
-                      '${state.currentWeather.humidity}%',
+                      '${state.weather.currentWeather.humidity}%',
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),
@@ -67,7 +67,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0),
                     child: Text(
-                      '${state.currentWeather.pressure} hPa',
+                      '${state.weather.currentWeather.pressure} hPa',
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),
@@ -96,7 +96,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0,left: 65.0,),
                     child: Text(
-                      '${state.currentWeather.windSpeed} km/h',
+                      '${state.weather.currentWeather.windSpeed} km/h',
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),
@@ -118,7 +118,7 @@ Widget extendedCurrentWeatherView(BuildContext context, CurrentWeatherLoadedStat
                   Container(
                     margin: EdgeInsets.only(top: 5.0, right: 65.0),
                     child: Text(
-                      windDirection(state.currentWeather.windDeg),
+                      windDirection(state.weather.currentWeather.windDeg),
                       style: TextStyle(fontSize: 17.0),
                       textAlign: TextAlign.center,
                     ),

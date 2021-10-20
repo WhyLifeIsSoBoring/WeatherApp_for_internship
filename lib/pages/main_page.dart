@@ -9,19 +9,20 @@ import 'package:weather_app_for_internship/services/current_weather_api_provider
 import 'package:weather_app_for_internship/widgets/main_current_weather_view.dart';
 
 class MainPage extends StatelessWidget {
-  CurrentWeatherProvider currentWeatherProvider = CurrentWeatherProvider();
+  WeatherProvider weatherProvider = WeatherProvider();
   CurrentLocationProvider currentLocationProvider = CurrentLocationProvider();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<WeatherBloc>(
-      create: (context) => WeatherBloc(currentWeatherProvider, currentLocationProvider)..add(CurrentWeatherLoadEvent()),
+      create: (context) => WeatherBloc(weatherProvider, currentLocationProvider)..add(CurrentWeatherLoadEvent()),
       child: BlocBuilder<WeatherBloc, WeatherState>(
         builder: (context, state) {
           return Scaffold(
             body: (() {
               if(state.currentIndex == 0) {
-                return Scaffold(
+                return mainCurrentWeatherView(context, state);
+                /*return Scaffold(
                   appBar: AppBar(
                     centerTitle: true,
                     backgroundColor: Colors.white,
@@ -30,7 +31,7 @@ class MainPage extends StatelessWidget {
                       style: TextStyle(color: Colors.black),),
                   ),
                   body: mainCurrentWeatherView(context, state)
-                );
+                );*/
               } else if (state.currentIndex == 1) {
                 return Scaffold(
                 appBar: AppBar(

@@ -1,35 +1,26 @@
-import 'package:weather_app_for_internship/models/current_weather.dart';
+import 'package:weather_app_for_internship/models/weather.dart';
 
 abstract class WeatherState {
-  late int currentIndex;
+  final int currentIndex;
+  WeatherState({required this.currentIndex});
 }
 class InitialState extends WeatherState {
-  final int currentIndex = 0;
+  static const int defoltIndex = 0;
+
+  InitialState() : super(currentIndex: defoltIndex);
 }
 
-class CurrentWeatherLoadingState extends WeatherState {
-  final int currentIndex = 0;
+class WeatherContentState extends WeatherState {
+  Weather weather;
+  WeatherContentState({required this.weather, required int index}) : super(currentIndex: index);
 }
 
-class CurrentWeatherLoadedState extends WeatherState {
-  final int currentIndex = 0;
-  CurrentWeather currentWeather;
-  CurrentWeatherLoadedState({required this.currentWeather});
+class WeatherLoadingState extends WeatherState {
+  WeatherLoadingState({required int index}) : super(currentIndex: index);
 }
+class WeatherErrorState extends WeatherState {
+  final String errorMessage;
 
-class CurrentWeatherErrorState extends WeatherState {
-  final int currentIndex = 0;
-}
-
-class ForecastWeatherLoadingState extends WeatherState {
-  final int currentIndex = 1;
-}
-
-class ForecastWeatherLoadedState extends WeatherState {
-  final int currentIndex = 1;
-
-}
-
-class ForecastWeatherErrorState extends WeatherState {
-  final int currentIndex = 1;
+  WeatherErrorState({required this.errorMessage,required int index}) : super(currentIndex: index);
+  
 }

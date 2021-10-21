@@ -1,1 +1,1 @@
-# WeatherApp_for_internship
+# Weather application for internship

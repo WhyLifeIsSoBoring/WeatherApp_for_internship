@@ -7,6 +7,7 @@ import 'package:weather_app_for_internship/presentation/custom_icons_icons.dart'
 import 'package:weather_app_for_internship/services/current_location_provider.dart';
 import 'package:weather_app_for_internship/services/current_weather_api_provider.dart';
 import 'package:weather_app_for_internship/widgets/main_current_weather_view.dart';
+import 'package:weather_app_for_internship/widgets/main_forecast_view.dart';
 
 class MainPage extends StatelessWidget {
   WeatherProvider weatherProvider = WeatherProvider();
@@ -22,24 +23,8 @@ class MainPage extends StatelessWidget {
             body: (() {
               if(state.currentIndex == 0) {
                 return mainCurrentWeatherView(context, state);
-                /*return Scaffold(
-                  appBar: AppBar(
-                    centerTitle: true,
-                    backgroundColor: Colors.white,
-                    title: Text(
-                      'Today',
-                      style: TextStyle(color: Colors.black),),
-                  ),
-                  body: mainCurrentWeatherView(context, state)
-                );*/
               } else if (state.currentIndex == 1) {
-                return Scaffold(
-                appBar: AppBar(
-                  centerTitle: true,
-                  title: Text('City'),
-                ),
-                body: Center(child: Text('Forecast', style: TextStyle(fontSize: 60.0)),)
-              );
+                return mainForecastView(context, state);
               }
             }()),
             bottomNavigationBar: BottomNavigationBar (
@@ -66,7 +51,8 @@ class MainPage extends StatelessWidget {
               ],
             ),
           );
-        })
+        }
+      ),
     );
   }
 }

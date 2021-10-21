@@ -6,7 +6,6 @@ import 'package:weather_app_for_internship/presentation/custom_icons_icons.dart'
 Widget extendedCurrentWeatherView(BuildContext context, WeatherContentState state) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisSize: MainAxisSize.min,
     children: <Widget>[
       Container(
         margin: EdgeInsets.symmetric(vertical: 10.0),

@@ -31,17 +31,6 @@ Widget mainCurrentWeatherView(BuildContext context, WeatherState state) {
       ),
     );
   }
-  /*if (state is CurrentWeatherLoadedState) {
-    return ListView(
-      children: <Widget>[
-        currentWeatherView(context, state),
-        Divider(height: 30.0, thickness: 2, indent: 100.0, endIndent: 100.0,),
-        extendedCurrentWeatherView(context, state),
-        Divider(height: 30.0, thickness: 2, indent: 100.0, endIndent: 100.0,),
-        shareView(state),
-      ],
-    );
-  }*/
   if (state is WeatherErrorState) {
     return Center(
       child: Text(

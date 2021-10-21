@@ -9,7 +9,7 @@ Widget forecast3hBox(BuildContext context, int index, WeatherContentState state)
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
       Container(
-        margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+        margin: EdgeInsets.only(left: 15.0, right: 40.0, top: 10.0, bottom: 10.0),
         child: Icon(
           getWeatherIcon(state.weather.forecast[index].icon),
           size: 70,

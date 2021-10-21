@@ -34,7 +34,7 @@ Widget forecastView(BuildContext context, int index, WeatherContentState state) 
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Divider(height: 1.0, thickness: 2, indent: 101.0,),
+          Divider(height: 1.0, thickness: 2, indent: 125.0,),
           forecast3hBox(context, index, state),
         ],
       );

@@ -1,6 +1,6 @@
 class Weather3h {
   final int dt;
-  final double temp;
+  final int temp;
   final String description;
   final String icon;
 

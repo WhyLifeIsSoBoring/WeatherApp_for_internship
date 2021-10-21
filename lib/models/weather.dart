@@ -14,7 +14,7 @@ class Weather {
     forecastData.forEach((item) {
       forecast.add(Weather3h(
         dt: item['dt'],
-        temp: item['main']['temp'].toDouble(),
+        temp: item['main']['temp'].toInt(),
         description: item['weather'][0]['description'],
         icon: item['weather'][0]['icon']
       ));

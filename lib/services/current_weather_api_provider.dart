@@ -5,7 +5,7 @@ import 'package:weather_app_for_internship/models/weather.dart';
 
 class WeatherProvider {
 
-  Future getWeather(LocationData _location) async {
+  Future<Weather> getWeather(LocationData _location) async {
 
     Weather weather;
     String lat = '${_location.latitude}';   

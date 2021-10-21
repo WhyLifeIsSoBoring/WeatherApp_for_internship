@@ -3,7 +3,7 @@ import 'package:location/location.dart';
 class CurrentLocationProvider {
 
   Future getCurrentLocation() async {
-    Location location = new Location();
+    Location location = Location();
 
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;

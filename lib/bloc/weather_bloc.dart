@@ -20,27 +20,22 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   @override 
   Stream<WeatherState> mapEventToState(WeatherEvent event) async* {
     if (event is CurrentWeatherLoadEvent) {
-      yield WeatherLoadingState(index: currentWeatherIndex);
-      try {
-        final LocationData _location = await currentLocationProvider.getCurrentLocation();
-        final Weather _weather = await weatherProvider.getWeather(_location);
-        yield WeatherContentState(weather: _weather, index: currentWeatherIndex);
-      } on SocketException catch (_) {
-        yield WeatherErrorState(errorMessage: scoketExceptionMessage, index: currentWeatherIndex);
-      } catch (_) {
-        yield WeatherErrorState(errorMessage: locationExceptionMessage, index: currentWeatherIndex);
-      }
+      yield* fetchWeather(currentWeatherIndex);
     } else if (event is ForecastWeatherLoadEvent) {
-      yield WeatherLoadingState(index: forecastIndex);
-      try {
-        final LocationData _location = await currentLocationProvider.getCurrentLocation();
-        final Weather _weather = await weatherProvider.getWeather(_location);
-        yield WeatherContentState(weather: _weather, index: forecastIndex);
-      } on SocketException catch (_) {
-        yield WeatherErrorState(errorMessage: scoketExceptionMessage, index: currentWeatherIndex);
-      } catch (_) {
-        yield WeatherErrorState(errorMessage: locationExceptionMessage, index: currentWeatherIndex);
-      }
+      yield* fetchWeather(forecastIndex);
+    }
+  }
+
+  Stream<WeatherState> fetchWeather(int index) async* {
+    yield WeatherLoadingState(index: index);
+    try {
+      final LocationData _location = await currentLocationProvider.getCurrentLocation();
+      final Weather _weather = await weatherProvider.getWeather(_location);
+      yield WeatherContentState(weather: _weather, index: index);
+    } on SocketException catch (_) {
+      yield WeatherErrorState(errorMessage: scoketExceptionMessage, index: index);
+    } catch (_) {
+      yield WeatherErrorState(errorMessage: locationExceptionMessage, index: index);
     }
   }
 }
